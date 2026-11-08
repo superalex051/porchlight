@@ -1,0 +1,4 @@
+# Every `@unchecked Sendable` and `nonisolated(unsafe)` in Sources, Tests or App needs an entry here.
+# One line per file and token, with a one-line justification (an entry without one does not count):
+#
+#   <path from the repo root> | <@unchecked Sendable or nonisolated(unsafe)> | <why it is safe>

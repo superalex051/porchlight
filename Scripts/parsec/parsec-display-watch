@@ -1,0 +1,14 @@
+#!/bin/zsh
+# Follows Parsec's log: a guest connecting switches to parsec-mode, the last guest leaving switches back to desk-mode.
+LOG="$HOME/.parsec/log.txt"
+guests=0
+tail -n0 -F "$LOG" 2>/dev/null | while IFS= read -r line; do
+  case "$line" in
+    *" disconnected.")
+      (( guests > 0 )) && (( guests-- ))
+      if (( guests == 0 )); then echo "$(date '+%F %T') last guest left: desk-mode"; "$HOME/.local/bin/desk-mode"; fi ;;
+    *" connected.")
+      (( guests++ ))
+      echo "$(date '+%F %T') guest connected ($guests): parsec-mode"; "$HOME/.local/bin/parsec-mode" ;;
+  esac
+done

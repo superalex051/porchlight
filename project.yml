@@ -1,0 +1,61 @@
+# The app shell. All logic is in the SwiftPM package, and this only wraps it in a signed .app.
+# Generate with Scripts/gen.sh. The .xcodeproj is never edited or committed.
+name: PorchLight
+options:
+  bundleIdPrefix: com.alexluncan
+  deploymentTarget:
+    macOS: "26.0"
+packages:
+  PorchLightKit:
+    path: .
+settings:
+  base:
+    ARCHS: arm64
+    SWIFT_VERSION: "6.0"
+targets:
+  PorchLight:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+        excludes:
+          - "**/.gitkeep"
+    configFiles:
+      Debug: Config/App.xcconfig
+      Release: Config/App.xcconfig
+    info:
+      path: Config/Info.plist
+      properties:
+        # The name people see. The bundle, the executable and the paths keep the space-free PorchLight.
+        CFBundleDisplayName: Porch Light
+        LSUIElement: true
+        # A windowless app can be throttled, and then it would miss the guardian's 1 second pings.
+        LSAppNapIsDisabled: true
+        LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        NSHumanReadableCopyright: "Copyright (c) 2026 Alexandru Luncan. MIT License."
+    entitlements:
+      path: Config/PorchLight.entitlements
+      properties: {}
+    # Here and not only in the xcconfig, because XcodeGen's defaults for an app (ad-hoc signing among
+    # them) are target settings, and those win over a config file.
+    settings:
+      base:
+        PRODUCT_NAME: PorchLight
+        PRODUCT_BUNDLE_IDENTIFIER: com.alexluncan.PorchLight
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: Apple Development
+    dependencies:
+      - package: PorchLightKit
+        product: ADApp
+schemes:
+  PorchLight:
+    build:
+      targets:
+        PorchLight: all
+    run:
+      config: Debug
+    archive:
+      config: Release

@@ -1,0 +1,10 @@
+#!/bin/zsh
+# Desk mode: end the session, which brings both monitors back in their recorded arrangement.
+AD="$HOME/.local/bin/porchlight"
+if out=$($AD session end -client=parsec 2>&1); then
+  echo "desk-mode: done${out:+ ($out)}"
+elif [[ "$out" == *"held by"* ]]; then
+  echo "desk-mode: left alone, $out"
+else
+  echo "desk-mode: end failed ($out), rescuing"; $AD rescue
+fi

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="960" height="300" role="img" aria-label="How Porch Light works: at the desk your monitors are on; when a client connects, a virtual screen sized for it becomes main and the monitors turn off; when it leaves, every monitor comes back as it was.">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#171e4a"/>
+      <stop offset="1" stop-color="#0d1230"/>
+    </linearGradient>
+    <linearGradient id="lit" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e4eaff"/>
+      <stop offset="1" stop-color="#a7b5f2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f6c96f" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#f6c96f" stop-opacity="0"/>
+    </radialGradient>
+    <!-- One monitor: frame, screen, stand. The screen fill is set where it's used. -->
+    <g id="frame">
+      <rect x="0" y="0" width="96" height="60" rx="7" fill="#080b1f" stroke="#323c78" stroke-width="1"/>
+      <rect x="42" y="60" width="12" height="9" fill="#2a3266"/>
+      <rect x="30" y="69" width="36" height="4" rx="2" fill="#2a3266"/>
+    </g>
+  </defs>
+
+  <rect width="960" height="300" rx="20" fill="url(#bg)"/>
+
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" text-anchor="middle">
+
+    <!-- 1: at the desk -->
+    <g transform="translate(24 24)">
+      <rect width="272" height="252" rx="14" fill="#1b2352" stroke="#2c3674"/>
+      <text x="136" y="40" font-size="12" font-weight="600" letter-spacing="1.6" fill="#f2c46d">AT THE DESK</text>
+      <use href="#frame" x="36" y="72"/>
+      <rect x="40" y="76" width="88" height="52" rx="4" fill="url(#lit)"/>
+      <use href="#frame" x="140" y="72"/>
+      <rect x="144" y="76" width="88" height="52" rx="4" fill="url(#lit)"/>
+      <text font-size="14" fill="#c9d1f2"><tspan x="136" y="196">Your monitors and layout,</tspan><tspan x="136" y="218">the way you set them up.</tspan></text>
+    </g>
+
+    <!-- arrow -->
+    <path d="M306 150 H331 M324 143 L332 150 L324 157" fill="none" stroke="#f2c46d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 2: a client connects -->
+    <g transform="translate(344 24)">
+      <rect width="272" height="252" rx="14" fill="#1b2352" stroke="#2c3674"/>
+      <text x="136" y="40" font-size="12" font-weight="600" letter-spacing="1.6" fill="#f2c46d">A CLIENT CONNECTS</text>
+      <use href="#frame" x="36" y="72"/>
+      <text x="84" y="106" font-size="11" fill="#4b5594">off</text>
+      <use href="#frame" x="140" y="72"/>
+      <text x="188" y="106" font-size="11" fill="#4b5594">off</text>
+      <ellipse cx="136" cy="102" rx="104" ry="62" fill="url(#glow)"/>
+      <rect x="78" y="64" width="116" height="76" rx="8" fill="#2b2a3d" fill-opacity="0.92" stroke="#f2c46d" stroke-width="2" stroke-dasharray="7 5"/>
+      <text x="136" y="99" font-size="13" font-weight="600" fill="#f6d38c">virtual screen</text>
+      <text x="136" y="117" font-size="11" fill="#d9c08a">sized for the client</text>
+      <text font-size="14" fill="#c9d1f2"><tspan x="136" y="196">A screen sized for the client</tspan><tspan x="136" y="218">becomes main, and the desk</tspan><tspan x="136" y="240">monitors switch off.</tspan></text>
+    </g>
+
+    <!-- arrow -->
+    <path d="M626 150 H651 M644 143 L652 150 L644 157" fill="none" stroke="#f2c46d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- 3: the client leaves -->
+    <g transform="translate(664 24)">
+      <rect width="272" height="252" rx="14" fill="#1b2352" stroke="#2c3674"/>
+      <text x="136" y="40" font-size="12" font-weight="600" letter-spacing="1.6" fill="#f2c46d">THE CLIENT LEAVES</text>
+      <use href="#frame" x="36" y="72"/>
+      <rect x="40" y="76" width="88" height="52" rx="4" fill="url(#lit)"/>
+      <use href="#frame" x="140" y="72"/>
+      <rect x="144" y="76" width="88" height="52" rx="4" fill="url(#lit)"/>
+      <circle cx="236" cy="70" r="12" fill="#f2c46d"/>
+      <path d="M230 70.5 L234.5 75 L242 66.5" fill="none" stroke="#1b2352" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text font-size="14" fill="#c9d1f2"><tspan x="136" y="196">Every monitor comes back,</tspan><tspan x="136" y="218">same mode, same position.</tspan></text>
+    </g>
+  </g>
+</svg>

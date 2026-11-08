@@ -1,0 +1,19 @@
+[
+  {"argv": ["get", "-UUID=<LG>", "-connected"], "operations": ["get"], "parameters": [["UUID", "<LG>"], ["connected", null]], "stdout": "on\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-UUID=<M34>", "-connected"], "operations": ["get"], "parameters": [["UUID", "<M34>"], ["connected", null]], "stdout": "on\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-UUID=<LG>", "-main"], "operations": ["get"], "parameters": [["UUID", "<LG>"], ["main", null]], "stdout": "true\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-UUID=<M34>", "-main"], "operations": ["get"], "parameters": [["UUID", "<M34>"], ["main", null]], "stdout": "false\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-UUID=<LG>", "-main", "-connected"], "operations": ["get"], "parameters": [["UUID", "<LG>"], ["main", null], ["connected", null]], "stdout": "true,on\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-UUID=<LG>", "-resolution"], "operations": ["get"], "parameters": [["UUID", "<LG>"], ["resolution", null]], "stdout": "2560x1440\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-UUID=<LG>", "-refreshRate"], "operations": ["get"], "parameters": [["UUID", "<LG>"], ["refreshRate", null]], "stdout": "120Hz\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-UUID=<LG>", "-hiDPI"], "operations": ["get"], "parameters": [["UUID", "<LG>"], ["hiDPI", null]], "stdout": "off\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-UUID=<M34>", "-placement"], "operations": ["get"], "parameters": [["UUID", "<M34>"], ["placement", null]], "stdout": "-446x1440\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-uuid=<LG>", "-MAIN"], "operations": ["get"], "parameters": [["UUID", "<LG>"], ["main", null]], "stdout": "true\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "--UUID=<LG>", "--main"], "operations": ["get"], "parameters": [["UUID", "<LG>"], ["main", null]], "stdout": "true\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-n=M34", "-main"], "operations": ["get"], "parameters": [["nameLike", "M34"], ["main", null]], "stdout": "false\n", "stderr": "", "exit": 0},
+  {"argv": ["get", "-UUID=00000000-0000-0000-0000-000000000000", "-connected"], "operations": ["get"], "parameters": [["UUID", "00000000-0000-0000-0000-000000000000"], ["connected", null]], "stdout": "", "stderr": "Failed.\n", "exit": 1},
+  {"argv": ["get", "-UUID=<LG>", "-nonexistentFeatureXYZ"], "operations": ["get"], "parameters": [["UUID", "<LG>"], ["nonexistentFeatureXYZ", null]], "stdout": "", "stderr": "Failed.\n", "exit": 1},
+  {"argv": ["set", "-UUID=<LG>", "-main=on"], "operations": ["set"], "parameters": [["UUID", "<LG>"], ["main", "on"]], "stdout": "", "stderr": "", "exit": 0},
+  {"argv": ["set", "-UUID=<M34>", "-connected=off"], "operations": ["set"], "parameters": [["UUID", "<M34>"], ["connected", "off"]], "stdout": "", "stderr": "", "exit": 0},
+  {"argv": ["set", "-UUID=<M34>", "-connected=on"], "operations": ["set"], "parameters": [["UUID", "<M34>"], ["connected", "on"]], "stdout": "", "stderr": "", "exit": 0}
+]

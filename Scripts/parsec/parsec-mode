@@ -1,0 +1,14 @@
+#!/bin/zsh
+# Parsec mode: a HiDPI virtual screen sized for the device that connected, with both desk monitors off.
+# Porch Light picks the size (-preset=auto): a device mapped by its address gets its preset, any other
+# gets a screen matched to the size its Parsec client reported, and otherwise the default. The settings
+# are in `porchlight clients list`, and session.log says which rule chose each size.
+# `parsec-mode --dry-run` prints the command instead of running it.
+AD="$HOME/.local/bin/porchlight"
+PARSEC_PID=$(pgrep -f '^/Applications/Parsec.app/Contents/MacOS/parsecd' | head -1)
+OWNERS=(-ownerpid=$PPID ${PARSEC_PID:+-ownerpid=$PARSEC_PID})
+if [[ ${1:-} == --dry-run ]]; then
+  echo "parsec-mode: would run: porchlight session start -client=parsec -preset=auto $OWNERS"
+  exit 0
+fi
+echo "parsec-mode: $($AD session start -client=parsec -preset=auto $OWNERS 2>&1)"

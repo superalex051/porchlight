@@ -1,0 +1,7 @@
+// Build settings for the app target. DEVELOPMENT_TEAM comes from the gitignored file below, which
+// Scripts/bootstrap.sh writes, so the team ID stays out of git.
+#include? "Signing.local.xcconfig"
+
+SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor
+SWIFT_UPCOMING_FEATURE_NONISOLATED_NONSENDING_BY_DEFAULT = YES
+SWIFT_UPCOMING_FEATURE_INFER_ISOLATED_CONFORMANCES = YES

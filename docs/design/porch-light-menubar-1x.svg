@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18" shape-rendering="crispEdges">
+  <!--
+    Porch Light menu bar glyph, @1x drawing: the same lantern and cone as porch-light-menubar.svg,
+    drawn pixel by pixel on the 18 px grid for the 18 px PNG, so nothing is anti-aliased at 1x.
+    Every rect is a whole number of pixels. The drawing is symmetric about pixel column 8, so the
+    1 px hanger is centred and crisp. The flame is a solid pixel teardrop (a 1 px tip over a 3 x 2
+    block) with a 1 px gap to each post. Ink spans rows 1 to 16, with one empty row above and below.
+    Rendered to MenuBarGlyph.imageset by Scripts/render-icons.sh.
+  -->
+  <g fill="#000">
+    <!-- Hanger, roof, eave -->
+    <rect x="8" y="1" width="1" height="1"/>
+    <rect x="7" y="2" width="3" height="1"/>
+    <rect x="5" y="3" width="7" height="1"/>
+    <rect x="4" y="4" width="9" height="1"/>
+    <!-- Posts -->
+    <rect x="5" y="5" width="1" height="4"/>
+    <rect x="11" y="5" width="1" height="4"/>
+    <!-- Flame -->
+    <rect x="8" y="5" width="1" height="1"/>
+    <rect x="7" y="6" width="3" height="2"/>
+    <!-- Base -->
+    <rect x="5" y="9" width="7" height="1"/>
+    <!-- Cone: two 45 degree pixel lines and the floor line -->
+    <rect x="6" y="11" width="1" height="1"/>
+    <rect x="5" y="12" width="1" height="1"/>
+    <rect x="4" y="13" width="1" height="1"/>
+    <rect x="3" y="14" width="1" height="1"/>
+    <rect x="2" y="15" width="1" height="1"/>
+    <rect x="10" y="11" width="1" height="1"/>
+    <rect x="11" y="12" width="1" height="1"/>
+    <rect x="12" y="13" width="1" height="1"/>
+    <rect x="13" y="14" width="1" height="1"/>
+    <rect x="14" y="15" width="1" height="1"/>
+    <rect x="2" y="16" width="13" height="1"/>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+#!/bin/bash
+# The installer runs this as root before it replaces /Applications/PorchLight.app. It stops the install if
+# a session is live, because quitting would end it and cut off whoever is connected. Otherwise it waits for
+# any restore to finish, quits Porch Light and stops the guardian, so both binaries can be replaced.
+
+user="$(stat -f %Su /dev/console)"
+[ -n "$user" ] && [ "$user" != root ] || exit 0
+uid="$(id -u "$user")"
+CLI=/Applications/PorchLight.app/Contents/Helpers/porchlight
+
+as_user() {
+    launchctl asuser "$uid" sudo -u "$user" "$@"
+}
+
+if [ -x "$CLI" ]; then
+    # With --no-launch, a Porch Light that isn't running fails here and prints nothing, which is fine.
+    status="$(as_user "$CLI" session status --no-launch --timeout=5 2>/dev/null || true)"
+    case "$status" in
+        "" | state=idle) ;;
+        *)
+            echo "Porch Light has a live session ($status). End it with 'porchlight session end -force', then run the installer again." >&2
+            exit 1
+            ;;
+    esac
+fi
+
+# A restore that's bringing monitors back must finish before its guardian is stopped.
+for _ in $(seq 1 120); do
+    pgrep -f 'porchlight-guardian restore' >/dev/null || break
+    sleep 0.5
+done
+
+if [ -x "$CLI" ]; then
+    as_user "$CLI" quit --no-launch --timeout=15 >/dev/null 2>&1 || true
+fi
+launchctl bootout "gui/$uid/com.alexluncan.PorchLight.guardian" 2>/dev/null || true
+exit 0
